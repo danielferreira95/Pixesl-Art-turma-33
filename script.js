@@ -62,5 +62,5 @@ function gerar_cor() {
         event.target.classList.add('selected');
     })
  };
- muda();
+ 
  
