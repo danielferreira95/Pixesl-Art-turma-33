@@ -1,7 +1,35 @@
+#div-titulo {
+    width: 400px;
+    margin: 0 auto;
+}
+
+h1 {
+    display: inline-block;
+}
+
 .color {
-    height: 45px;
-    width: 45px;
+    height: 80px;
+    width: 80px;
     display: inline-block;
     border: solid black 1px;
     border-radius: 10%;
+}
+
+main {
+    width: 480px;
+    margin: 0 auto;
+}
+
+#secao-cor {
+    width: 400px;
+    margin: 0 ;
+}
+
+#secao-quadro {
+    width: 400px;
+    margin: 0 auto;
+}
+
+#pixel-board > div {
+    width: fit-content;
 }

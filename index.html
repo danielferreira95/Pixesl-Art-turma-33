@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,16 +8,27 @@
     <link rel="stylesheet" href="style.css">
     <title>Pixesl Art</title>
 </head>
+
 <body>
+    <div id="div-titulo">
     <h1 id="title">Paleta de Cores</h1>
-    <div id="color-palette" >
-        <div class="color selected"></div>
-        <div class="color"></div>
-        <div class="color" style.backgroundColor = 'green'></div>
-        <div class="color" style.backgroundColor = 'blue'></div>
     </div>
-    <div id="pixel-board"></div>
-    <button id="button-random-color">Cores Aleatórias</button>
+    <main>
+       <section id="secao-cor">
+        <div id="color-palette">
+            <div class="color selected"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+        </div>
+       </section> 
+        <button id="button-random-color">Cores aleatórias</button>
+        <button id="clear-board">Limpar</button>
+        <section id="secao-quadro">
+            <div id="pixel-board"></div>
+        </section>
+    </main>
     <script src="script.js"></script>
 </body>
+
 </html>
