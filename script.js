@@ -8,8 +8,8 @@ const botao = document.querySelector('#button-random-color');
 const board = document.querySelector('#pixel-board');
 const palete = document.querySelector('#color-palette');
 const limpaQuadro = document.querySelector('#clear-board');
-const capturaInput = document.querySelector('#board-size');
-const capturaBotao = document.querySelector('#generate-board');
+const entradaTamanho = document.querySelector('#board-size');
+const botaoTamanho = document.querySelector('#generate-board');
 
 //Requisito 2 - Adicione à página uma paleta contendo quatro cores distintas - feito da linha 11 até 14
 //Requisito 3 - Adicione a cor preta como a primeira cor da paleta de cores - feito na linha 11
@@ -46,14 +46,15 @@ function gerarCor() {
     localStorage.setItem('colorPalette', JSON.stringify(array));
 };
 
-
-
+botao.addEventListener('click', corLista);
 
 // Requisito 6 e 7
- const quadro = () => {
-    board.style.width = '230px';
-    for(let index = 0; index<5; index+=1){
-        for(let index = 0; index<5; index+=1){
+let numeroQuadrinhos = 5;
+ let quadro = (numberQuadrinhos) => {
+    board.style.width = `${40*numberQuadrinhos + numberQuadrinhos*6}px`;
+    board.style.height = `${40*numberQuadrinhos + numberQuadrinhos*6}px`;
+    for(let index = 0; index<numberQuadrinhos; index+=1){
+        for(let i = 0; i<numberQuadrinhos; i+=1){
             const quadrinho = document.createElement('div');
             quadrinho.classList.add('pixel');
             quadrinho.style.background = 'white';
@@ -67,7 +68,9 @@ function gerarCor() {
             board.appendChild(quadrinho);
         }
     }
- }
+ } ;
+ quadro(numeroQuadrinhos);
+ 
 
 
  //Requisito 9
@@ -135,7 +138,6 @@ const guardaQuadro = () => {
  const limpaBoard = () => {
         limpaQuadro.addEventListener('click', () => {
             const quadradinho = document.querySelectorAll('.pixel');
-            console.log(quadradinho);
             const coresConjunto = [];
             for(let index = 0; index < quadradinho.length; index += 1){
                 quadradinho[index].style.backgroundColor = 'rgb(255, 255, 255)';
@@ -153,7 +155,6 @@ const guardaQuadro = () => {
 
 const pegarCor = () => {
     const colors = JSON.parse(localStorage.getItem('pixelBoard'));
-    console.log(colors);
     const square = document.querySelectorAll('.pixel');
     if(colors){
     for(let index = 0; index<colors.length; index +=1){
@@ -165,17 +166,43 @@ const pegarCor = () => {
 
 
 
-
+// Requisito 13 e 14
 
 const tamanhoQuadro = () => {
-     capturaBotao.addEventListener('click', () => {
-        const tamanho = capturaInput.value;
-        if(tamanho){
-        board.style.width = `${tamanho}px`;
-} else {alert('Board inválido!')}})
+     botaoTamanho.addEventListener('click', () => {
+        const tamanho = entradaTamanho.value;
+        board.innerHTML = '';
+        numeroQuadrinhos = tamanho;
+        quadro(numeroQuadrinhos);
+        localStorage.setItem('boardSize', JSON.stringify(numeroQuadrinhos));
+        if(tamanho === ''){
+            alert('Board inválido!');
+        quadro(5);
+    } if(tamanho<5){
+        board.innerHTML = '';
+        quadro(5);
+    } if(tamanho>50){
+        board.innerHTML = '';
+        quadro(50);
+    }
+})
 };
 tamanhoQuadro();
- 
+
+// Requisito 15
+
+const keepSize = () => {
+    if(localStorage.getItem('boardSize')){
+        board.innerHTML = '';
+      const size = JSON.parse(localStorage.getItem('boardSize'));
+      quadro(size);
+} else {
+    board.innerHTML = '';
+    quadro(numeroQuadrinhos);
+}
+};
+
+keepSize();
 
 
 
@@ -185,9 +212,8 @@ tamanhoQuadro();
 // };
 
 
-botao.addEventListener('click', corLista);
-quadro();
 recarrega();
 clica();
 limpaBoard();
 pegarCor();
+
