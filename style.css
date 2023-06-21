@@ -1,10 +1,19 @@
+body {
+  background-color: aquamarine;
+  font-family: Great Vibes, cursive;
+  font-size: 30px;
+}
+
 #div-titulo {
   width: 400px;
-  margin: 0 auto;
 }
 
 h1 {
   display: inline-block;
+}
+
+main {
+  width: 480px;
 }
 
 .color {
@@ -15,8 +24,57 @@ h1 {
   border-radius: 10%;
 }
 
-main {
-  width: 480px;
+#button-random-color {
+  font-family: Great Vibes, cursive;
+  font-size: 15px;
+  font-weight: 600;
+  box-sizing: border-box;
+  border-radius: 10px;
+  width: 150px;
+  height: 5px;
+  padding: 5px 0 20px 0; 
+  text-align: center;
+  margin: 10px;
+  background-color: blueviolet;
+  border: solid salmon 5px;
+}
+
+#clear-board {
+  font-family: Great Vibes, cursive;
+  font-size: 15px;
+  font-weight: 600;
+  box-sizing: border-box;
+  border-radius: 10px;
+  width: 150px;
+  height: 5px;
+  padding: 5px 0 20px 0; 
+  text-align: center;
+  margin: 10px 27px;
+  background-color: blueviolet;
+  border: solid salmon 5px;
+}
+
+#board-size {
+  border-radius: 10px;
+  padding: 20px;
+  width: 150px;
+  margin-left: 12px;
+  box-sizing: border-box;
+}
+
+#generate-board{
+  font-family: Great Vibes, cursive;
+  font-size: 15px;
+  font-weight: 600;
+  box-sizing: border-box;
+  border-radius: 10px;
+  width: 150px;
+  height: 5px;
+  padding: 5px 0 20px 0; 
+  text-align: center;
+  margin: 10px 35px;
+  background-color: blueviolet;
+  border: solid salmon 5px;
 }
 
 #secao-cor {
@@ -26,7 +84,7 @@ main {
 
 #secao-quadro {
   width: 400px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 #pixel-board {

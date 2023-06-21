@@ -175,6 +175,7 @@ const tamanhoQuadro = () => {
         numeroQuadrinhos = tamanho;
         quadro(numeroQuadrinhos);
         localStorage.setItem('boardSize', JSON.stringify(numeroQuadrinhos));
+        entradaTamanho.value = '';
         if(tamanho === ''){
             alert('Board inválido!');
         quadro(5);
